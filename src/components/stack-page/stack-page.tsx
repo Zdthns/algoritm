@@ -19,7 +19,7 @@ export const StackPage: React.FC = () => {
           <Button text="Удалить" />
           <Button text="Очистить" />
         </form>
-        <div className={style.visualBlock}>
+        <div className={style.animationBlock}>
           <Circle index={1} />;
         </div>
       </div>

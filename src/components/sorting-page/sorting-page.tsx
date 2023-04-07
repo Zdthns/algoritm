@@ -20,10 +20,8 @@ export const SortingPage: React.FC = () => {
           </div>
           <Button text="Новый массив" extraClass={style.button} />
         </form>
-        <div className={style.visualBlock}>
-          return (
+        <div className={style.animationBlock}>
           <Column extraClass={style.element} index={1} />
-          );
         </div>
       </div>
     </SolutionLayout>

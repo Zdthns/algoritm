@@ -15,7 +15,7 @@ export const QueuePage: React.FC = () => {
           <Button text="Удалить" />
           <Button text="Очистить" />
         </form>
-        <div className={style.visualBlock}>
+        <div className={style.animationBlock}>
           <Circle />;
         </div>
       </div>
