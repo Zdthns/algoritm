@@ -4,19 +4,21 @@ import style from "./style.module.css";
 import { Input } from "../ui/input/input";
 import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
+import SimpleForm from "../ui/form/simple-form";
 
 export const QueuePage: React.FC = () => {
   return (
     <SolutionLayout title="Очередь">
       <div className={style.wrapper}>
-        <form className={style.form}>
-          <Input maxLength={4} />
-          <Button text="Добавить" />
-          <Button text="Удалить" />
-          <Button text="Очистить" />
-        </form>
+        <SimpleForm
+          isLimitText={false}
+          maxLength={4}
+          text1={"Добавить"}
+          text2={"Удалить"}
+          text3={"Очистить"}
+        />
         <div className={style.animationBlock}>
-          <Circle />;
+          <Circle />
         </div>
       </div>
     </SolutionLayout>
