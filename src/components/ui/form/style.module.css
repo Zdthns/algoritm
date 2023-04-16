@@ -5,6 +5,7 @@
 }
 
 .form {
+  margin: 0 auto;
   border: 1px solid rgb(34, 37, 216);
   display: flex;
   gap: 12px;
@@ -21,9 +22,11 @@
 }
 
 .container {
+  display: flex;
   width: calc(100% - 288px);
   margin: 0 auto;
   border: 1px solid red;
+  align-content: center;
 }
 
 .input {
