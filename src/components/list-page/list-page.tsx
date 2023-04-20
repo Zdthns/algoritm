@@ -7,6 +7,8 @@ import { Input } from "../ui/input/input";
 import SimpleForm from "../ui/form/simple-form";
 
 export const ListPage: React.FC = () => {
+  const handlerChange = () => {};
+  const handleSubmit = () => {};
   return (
     <SolutionLayout title="Связный список">
       <div className={style.wrapper}>

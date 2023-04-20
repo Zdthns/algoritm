@@ -9,6 +9,8 @@ interface MainPageProps {
 }
 
 export const MainPage: React.FC<MainPageProps> = ({ extraClass = "" }) => {
+  const handlerChange = () => {};
+  const handleSubmit = () => {};
   return (
     <main className={`${styles.content} ${extraClass}`}>
       <div className={styles.title_box}>

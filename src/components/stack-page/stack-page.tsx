@@ -7,6 +7,8 @@ import { Button } from "../ui/button/button";
 import SimpleForm from "../ui/form/simple-form";
 
 export const StackPage: React.FC = () => {
+  const handlerChange = () => {};
+  const handleSubmit = () => {};
   return (
     <SolutionLayout title="Стек">
       <div className={style.wrapper}>

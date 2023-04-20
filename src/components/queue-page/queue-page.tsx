@@ -7,6 +7,8 @@ import { Circle } from "../ui/circle/circle";
 import SimpleForm from "../ui/form/simple-form";
 
 export const QueuePage: React.FC = () => {
+  const handlerChange = () => {};
+  const handleSubmit = () => {};
   return (
     <SolutionLayout title="Очередь">
       <div className={style.wrapper}>

@@ -6,6 +6,8 @@ import { Button } from "../ui/button/button";
 import { Column } from "../ui/column/column";
 
 export const SortingPage: React.FC = () => {
+  const handlerChange = () => {};
+  const handleSubmit = () => {};
   return (
     <SolutionLayout title="Сортировка массива">
       <div className={style.wrapper}>

@@ -11,9 +11,11 @@ export const StringComponent: React.FC = () => {
   const [simbol, setSimbol] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
+
+  const handleSubmit = () => {};
   return (
     <SolutionLayout title="Строка">
       <div className={style.wrapper}>
