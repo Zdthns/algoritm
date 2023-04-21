@@ -1,31 +1,56 @@
 import style from "./style.module.css";
 import React, { useState } from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
-import { Input } from "../ui/input/input";
-import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
-import SimpleForm from "../ui/form/simple-form";
+import SimpleForm from "../form/simple-form";
+import { ElementStates, ItemArray } from "../../types/element-states";
+import { conditionBtn, handlerArray } from "./stringUtils";
 
 export const StringComponent: React.FC = () => {
-  const [value, setValue] = useState("");
-  const [simbol, setSimbol] = useState([]);
+  const [simbolArr, setSimbolArr] = useState<ItemArray[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [disabled, setDisabled] = useState(true);
 
-  const handlerChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+  const handlerChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
+    setDisabled(conditionBtn(evt.currentTarget.value));
+    setSimbolArr(
+      evt.target.value.split("").map((item: string) => {
+        return {
+          item,
+          state: ElementStates.Default,
+        };
+      })
+    );
   };
 
-  const handleSubmit = () => {};
+  const handlerSubmit: React.FormEventHandler<HTMLButtonElement> = async (
+    evt
+  ) => {
+    evt.preventDefault();
+    setDisabled(true);
+    await handlerArray(simbolArr, setSimbolArr);
+    setDisabled(false);
+  };
   return (
     <SolutionLayout title="Строка">
       <div className={style.wrapper}>
-        <SimpleForm isLimitText={true} maxLength={11} text1="Развернуть" />
-        {/*<form className={style.form}>
-          <Input isLimitText={true} maxLength={11} />
-          <Button extraClass={style.button} text="Развернуть" />
-        </form>*/}
+        <SimpleForm
+          isLimitText={true}
+          maxLength={11}
+          text1="Развернуть"
+          handlerSubmit={handlerSubmit}
+          handlerChange={handlerChange}
+          isLoader={isLoading}
+          disabled={disabled}
+        />
         <div className={style.animationBlock}>
-          <Circle />
+          {simbolArr?.map((simbol, index) => (
+            <Circle
+              state={simbol.state}
+              letter={`${simbol.item}`}
+              key={index}
+            />
+          ))}
         </div>
       </div>
     </SolutionLayout>
