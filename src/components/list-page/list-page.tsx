@@ -1,20 +1,20 @@
 import React from "react";
 import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import style from "./style.module.css";
-import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
-import { Input } from "../ui/input/input";
-import SimpleForm from "../ui/form/simple-form";
+import SimpleForm from "../form/simple-form";
 
 export const ListPage: React.FC = () => {
   const handlerChange = () => {};
-  const handleSubmit = () => {};
+  const handlerSubmit = () => {};
   return (
     <SolutionLayout title="Связный список">
       <div className={style.wrapper}>
         <SimpleForm
           isLimitText={false}
           placeholder="Введите значение"
+          handlerChange={handlerChange}
+          handlerSubmit={handlerSubmit}
           text1="Добавить в head"
           text2="Добавить в tail"
           text3="Удалить из head"
@@ -24,11 +24,12 @@ export const ListPage: React.FC = () => {
           <SimpleForm
             placeholder="Введите индекс"
             isLimitText={false}
+            handlerChange={handlerChange}
+            handlerSubmit={handlerSubmit}
             text1="Добавить по индексу"
             text2="Удалить по индексу"
           />
         </div>
-
         {/*<form className={style.form}>
           <div className={style.container}>
             <div className={style.input}>

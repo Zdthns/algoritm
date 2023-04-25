@@ -20,11 +20,8 @@ export const handlerArray = async (simbol: ItemArray[], setSimbol: Function,
     simbol[start].state = ElementStates.Modified;
     simbol[end].state = ElementStates.Modified;
     reverseString(simbol, start, end);
-    console.log(simbol)
     setSimbol([...simbol]);
-
     await delay(DELAY_IN_MS);
-
     start++;
     end--;
   }
