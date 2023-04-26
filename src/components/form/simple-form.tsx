@@ -11,7 +11,11 @@ type propsType = {
   isLoader?: boolean;
   disabled?: boolean;
   handlerChange: React.ChangeEventHandler<HTMLInputElement>;
-  handlerSubmit: React.FormEventHandler<HTMLButtonElement>;
+  handlerSubmit?: React.FormEventHandler<HTMLButtonElement>;
+  onClick1?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick2?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick3?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick4?: React.MouseEventHandler<HTMLButtonElement>;
   type?: string;
   value?: any;
   max?: number;
@@ -31,6 +35,10 @@ const SimpleForm: FC<propsType> = ({
   disabled,
   handlerChange,
   handlerSubmit,
+  onClick1,
+  onClick2,
+  onClick3,
+  onClick4,
   type,
   value,
   max,
