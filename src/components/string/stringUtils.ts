@@ -4,23 +4,23 @@
 import { DELAY_IN_MS, delay } from "../../constants/delays";
 import { ElementStates, ItemArray } from "../../types/element-states";
 
-export const handlerArray = async (simbol: ItemArray<string>[], setSimbol: Function,
+export const handlerArray = async (array: ItemArray<string>[], setArray: Function,
 ) => {
   let start: number = 0;
-  let end: number = simbol.length - 1
+  let end: number = array.length - 1
 
-  const half = simbol.length / 2;
+  const half = array.length / 2;
   while (start < half) {
-    simbol[start].state = ElementStates.Changing;
-    simbol[end].state = ElementStates.Changing;
-    setSimbol([...simbol]);
+    array[start].state = ElementStates.Changing;
+    array[end].state = ElementStates.Changing;
+    setArray([...array]);
 
     await delay(DELAY_IN_MS);
 
-    simbol[start].state = ElementStates.Modified;
-    simbol[end].state = ElementStates.Modified;
-    reverseString(simbol, start, end);
-    setSimbol([...simbol]);
+    array[start].state = ElementStates.Modified;
+    array[end].state = ElementStates.Modified;
+    reverseString(array, start, end);
+    setArray([...array]);
     await delay(DELAY_IN_MS);
     start++;
     end--;
@@ -34,10 +34,3 @@ const reverseString = (str: ItemArray<string>[], index: number, secondIndex: num
 
 }
 
-
-export const conditionBtn = (ev: string) => {
-  if (ev.length > 0) {
-    return false
-  }
-  return true
-}
