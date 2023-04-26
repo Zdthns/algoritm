@@ -4,8 +4,14 @@ export enum ElementStates {
   Modified = "modified",
 }
 
-export type ItemArray = {
-  item: string | number;
+export type ItemArray<T> = {
+  item: T;
+  state: ElementStates;
+};
+
+
+export type TStackArr<T> = {
+  item: T;
   state: ElementStates;
 };
 

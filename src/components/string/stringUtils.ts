@@ -4,7 +4,7 @@
 import { DELAY_IN_MS, delay } from "../../constants/delays";
 import { ElementStates, ItemArray } from "../../types/element-states";
 
-export const handlerArray = async (simbol: ItemArray[], setSimbol: Function,
+export const handlerArray = async (simbol: ItemArray<string>[], setSimbol: Function,
 ) => {
   let start: number = 0;
   let end: number = simbol.length - 1
@@ -27,7 +27,7 @@ export const handlerArray = async (simbol: ItemArray[], setSimbol: Function,
   }
 }
 
-const reverseString = (str: ItemArray[], index: number, secondIndex: number): void => {
+const reverseString = (str: ItemArray<string>[], index: number, secondIndex: number): void => {
   let reversed = str[index];
   str[index] = str[secondIndex];
   str[secondIndex] = reversed;

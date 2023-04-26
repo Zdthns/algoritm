@@ -3,32 +3,61 @@ import { SolutionLayout } from "../ui/solution-layout/solution-layout";
 import style from "./style.module.css";
 import { Circle } from "../ui/circle/circle";
 import SimpleForm from "../form/simple-form";
+import { TFilsetBtn, TFilsetInput } from "../form/typeForm";
+import ListFormIndex from "./listFormIndex";
 
 export const ListPage: React.FC = () => {
   const handlerChange = () => {};
   const handlerSubmit = () => {};
+
+  const filsetInput: TFilsetInput = {
+    value: "",
+    maxLength: 4,
+    isLimitText: true,
+    placeholder: "Введите значение",
+    handlerChange: handlerChange,
+    extraClass: "",
+  };
+  const filsetBtn: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: false,
+    disabled: false,
+    text: "Добавить в head",
+    linkedList: "small",
+  };
+  const filsetBtn2: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: false,
+    disabled: false,
+    text: "Добавить в tail",
+    linkedList: "small",
+  };
+  const filsetBtn3: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: false,
+    disabled: false,
+    text: "Удалить из head",
+    linkedList: "small",
+  };
+  const filsetBtn4: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: false,
+    disabled: false,
+    text: "Удалить из tail",
+    linkedList: "small",
+  };
   return (
     <SolutionLayout title="Связный список">
       <div className={style.wrapper}>
         <SimpleForm
-          isLimitText={false}
-          placeholder="Введите значение"
-          handlerChange={handlerChange}
-          handlerSubmit={handlerSubmit}
-          text1="Добавить в head"
-          text2="Добавить в tail"
-          text3="Удалить из head"
-          text4="Удалить из tail"
+          filsetInput={filsetInput}
+          filsetBtn={filsetBtn}
+          filsetBtn2={filsetBtn2}
+          filsetBtn3={filsetBtn3}
+          filsetBtn4={filsetBtn4}
         />
-        <div className={style.containerForm}>
-          <SimpleForm
-            placeholder="Введите индекс"
-            isLimitText={false}
-            handlerChange={handlerChange}
-            handlerSubmit={handlerSubmit}
-            text1="Добавить по индексу"
-            text2="Удалить по индексу"
-          />
+        <div>
+          <ListFormIndex />
         </div>
         {/*<form className={style.form}>
           <div className={style.container}>

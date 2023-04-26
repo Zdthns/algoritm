@@ -5,9 +5,11 @@ import { Circle } from "../ui/circle/circle";
 import SimpleForm from "../form/simple-form";
 import { ElementStates, ItemArray } from "../../types/element-states";
 import { conditionBtn, handlerArray } from "./stringUtils";
+import { TFilsetBtn, TFilsetInput } from "../form/typeForm";
 
 export const StringComponent: React.FC = () => {
-  const [simbolArr, setSimbolArr] = useState<ItemArray[]>([]);
+  const [value, setValue] = useState("");
+  const [simbolArr, setSimbolArr] = useState<ItemArray<string>[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [disabled, setDisabled] = useState(true);
 
@@ -31,18 +33,26 @@ export const StringComponent: React.FC = () => {
     await handlerArray(simbolArr, setSimbolArr);
     setDisabled(false);
   };
+
+  const filsetInput: TFilsetInput = {
+    value: value,
+    maxLength: 11,
+    isLimitText: true,
+    placeholder: "Введите число",
+    handlerChange: handlerChange,
+    min: 1,
+  };
+  const filsetBtn: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: isLoading,
+    disabled: disabled,
+    text: "Развернуть",
+    linkedList: "small",
+  };
   return (
     <SolutionLayout title="Строка">
       <div className={style.wrapper}>
-        <SimpleForm
-          isLimitText={true}
-          maxLength={11}
-          text1="Развернуть"
-          handlerSubmit={handlerSubmit}
-          handlerChange={handlerChange}
-          isLoader={isLoading}
-          disabled={disabled}
-        />
+        <SimpleForm filsetInput={filsetInput} filsetBtn={filsetBtn} />
         <div className={style.animationBlock}>
           {simbolArr?.map((simbol, index) => (
             <Circle

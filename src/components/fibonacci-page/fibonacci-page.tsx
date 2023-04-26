@@ -6,6 +6,7 @@ import { Button } from "../ui/button/button";
 import { Circle } from "../ui/circle/circle";
 import SimpleForm from "../form/simple-form";
 import { fibIterative } from "./fibonacciUtils";
+import { TFilsetBtn, TFilsetInput } from "../form/typeForm";
 
 export const FibonacciPage: React.FC = () => {
   const [valueInput, setValueInput] = useState(0);
@@ -13,7 +14,7 @@ export const FibonacciPage: React.FC = () => {
   const [loaderBtn, setLoaderBtn] = useState<boolean>(false);
   const [numbers, setNumbers] = useState<number[]>([]);
 
-  const handlerChange: React.ChangeEventHandler<HTMLInputElement> = (evt) => {
+  const handlerChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     let input = Number(evt.target.value);
     if (isNaN(input)) {
       input = 0;
@@ -36,23 +37,26 @@ export const FibonacciPage: React.FC = () => {
     await fibIterative(input + 1, setNumbers);
     setLoaderBtn(false);
   };
-
+  const filsetInput: TFilsetInput = {
+    value: valueInput,
+    maxLength: 19,
+    isLimitText: true,
+    placeholder: "Введите число",
+    handlerChange: handlerChange,
+    min: 1,
+    type: "numbers",
+  };
+  const filsetBtn: TFilsetBtn = {
+    handlerSubmit: handlerSubmit,
+    isLoader: loaderBtn,
+    disabled: disabled,
+    text: "Рассчитать",
+    linkedList: "small",
+  };
   return (
     <SolutionLayout title="Последовательность Фибоначчи">
       <div className={style.wrapper}>
-        <SimpleForm
-          placeholder={"Введите число"}
-          isLimitText={true}
-          maxLength={19}
-          text1={"Рассчитать"}
-          linkedList="small"
-          isLoader={loaderBtn}
-          disabled={disabled}
-          handlerSubmit={handlerSubmit}
-          handlerChange={handlerChange}
-          value={valueInput}
-          min={1}
-        />
+        <SimpleForm filsetInput={filsetInput} filsetBtn={filsetBtn} />
         <div className={style.animationBlock}>
           {numbers?.map((number, index) => (
             <Circle letter={`${number}`} key={index} index={index} />
