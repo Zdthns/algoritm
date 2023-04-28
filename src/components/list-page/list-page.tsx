@@ -39,7 +39,7 @@ export const ListPage: React.FC = () => {
   );
 
   const [inputValue, setInputValue] = useState<string>("");
-  const [inputIndex, setInputIndex] = useState<number>(0);
+  const [inputIndex, setInputIndex] = useState<string>("");
 
   const [array, setArray] = useState<Array<TListElement>>(inicialArray);
 
@@ -54,7 +54,7 @@ export const ListPage: React.FC = () => {
     if (evt.currentTarget.type === "text") {
       setInputValue(evt.currentTarget.value);
     } else {
-      setInputIndex(+evt.currentTarget.value);
+      setInputIndex(evt.currentTarget.value);
     }
   };
 
@@ -267,9 +267,10 @@ export const ListPage: React.FC = () => {
   };
 
   const handlerAddByIndex = async () => {
+    let index = Number(inputIndex);
     setAddByIndex(true);
-    linkedList.insertAt(inputValue, inputIndex);
-    for (let i = 0; i <= inputIndex; i++) {
+    linkedList.insertAt(inputValue, index);
+    for (let i = 0; i <= index; i++) {
       array[i] = {
         ...array[i],
         state: ElementStates.Changing,
@@ -288,12 +289,12 @@ export const ListPage: React.FC = () => {
 
       await delay(DELAY_IN_MS);
     }
-    array[inputIndex] = {
-      ...array[inputIndex!],
+    array[index] = {
+      ...array[index!],
       isAdded: false,
       newCircle: null,
     };
-    array.splice(inputIndex, 0, {
+    array.splice(index, 0, {
       item: inputValue,
       state: ElementStates.Modified,
     });
@@ -307,29 +308,30 @@ export const ListPage: React.FC = () => {
     array[0].head = true;
     setArray([...array]);
     setInputValue("");
-    setInputIndex(0);
+    setInputIndex("");
     setAddByIndex(false);
   };
 
   const handlerRemoveByIndex = async () => {
+    let index = Number(inputIndex);
     setRemoveByIndex(true);
-    for (let i = 0; i <= inputIndex; i++) {
+    for (let i = 0; i <= index; i++) {
       array[i].state = ElementStates.Changing;
       setArray([...array]);
 
       await delay(DELAY_IN_MS);
     }
-    array[inputIndex] = {
-      ...array[inputIndex],
+    array[index] = {
+      ...array[index],
       item: "",
       isRemoved: true,
-      newCircle: { item: array[inputIndex].item },
+      newCircle: { item: array[index].item },
     };
     setArray([...array]);
 
     await delay(DELAY_IN_MS);
 
-    array.splice(inputIndex, 1);
+    array.splice(index, 1);
     setArray([...array]);
 
     await delay(DELAY_IN_MS);
@@ -341,7 +343,7 @@ export const ListPage: React.FC = () => {
     array[0].head = true;
     setArray([...array]);
     setInputValue("");
-    setInputIndex(0);
+    setInputIndex("");
     setRemoveByIndex(false);
   };
 
@@ -437,7 +439,7 @@ export const ListPage: React.FC = () => {
       removeHead ||
       removeTail ||
       removeByIndex ||
-      (inputIndex !== 0 && inputValue === "") ||
+      (+inputIndex !== 0 && inputValue === "") ||
       !inputIndex ||
       array.length >= 8 ||
       +inputIndex > array.length - 1,

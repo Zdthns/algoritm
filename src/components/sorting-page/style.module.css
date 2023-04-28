@@ -33,4 +33,5 @@
   align-items: flex-end;
   padding: 48px 0 0;
   height: 368px;
+  column-gap: 10px;
 }

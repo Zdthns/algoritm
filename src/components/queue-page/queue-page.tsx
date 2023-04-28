@@ -19,9 +19,6 @@ const sizeQueue: number = 7;
 const queue = new Queue<string>(sizeQueue);
 
 export const QueuePage: React.FC = () => {
-  //const sizeQueue: number = 7;
-  //const queue = useMemo(() => new Queue<string>(sizeQueue), []);
-
   const initialArr: Array<TQueueArr> = Array.from(
     { length: sizeQueue },
     () => ({
@@ -48,7 +45,7 @@ export const QueuePage: React.FC = () => {
   useEffect(() => {
     !inputValue
       ? setDisabledBtn({ push: true, pop: true, clear: true })
-      : setDisabledBtn({ push: false, pop: true, clear: true });
+      : setDisabledBtn({ push: false, pop: false, clear: false });
   }, [inputValue]);
   useEffect(() => {
     array.some((item) => {

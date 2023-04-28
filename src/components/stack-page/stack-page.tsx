@@ -123,6 +123,7 @@ export const StackPage: React.FC = () => {
           {array &&
             array?.map((item, index) => (
               <Circle
+                key={index}
                 letter={`${item.item}`}
                 index={index}
                 state={item.state}
