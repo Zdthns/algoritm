@@ -9,8 +9,8 @@ import {
   NumbersArrayType,
   SortType,
 } from "../../types/element-states";
-import { SelectionSortUp, bubbleSort, randomArr } from "./sortingUtils";
-import { delay, SHORT_DELAY_IN_MS } from "../../constants/delays";
+import { SelectionSortUp, bubbleSort } from "./sortingUtils";
+import { randomArr } from "../../utils/randomArr";
 
 type TSortingArr = {
   value: number;
@@ -21,19 +21,22 @@ export const SortingPage: React.FC = () => {
   const [array, setArray] = useState<NumbersArrayType[]>([]);
   const [method, setMethod] = useState("choice");
   const [disabledBtn, setDisabledBtn] = useState<boolean>(false);
-  const [loaderUp, setLoaderUp] = useState(false);
-  const [loaderDown, setLoaderDown] = useState(false);
+  const [loader, setLoader] = useState({
+    Up: false,
+    Down: false,
+    newArr: false,
+  });
 
   const newArray = async () => {
-    //setDisabledBtn(true);
     setArray(
-      (await randomArr()).map((num: number) => {
+      (await randomArr(0, 100, 17, 3)).map((num: number) => {
         return {
           num,
           state: ElementStates.Default,
         };
       })
     );
+    setLoader({ Up: false, Down: false, newArr: false });
   };
 
   useEffect(() => {
@@ -42,18 +45,17 @@ export const SortingPage: React.FC = () => {
 
   const handleSubmit = async (sortType: SortType) => {
     setDisabledBtn(true);
-    sortType === SortType.Up ? setLoaderUp(true) : setLoaderDown(true);
+    sortType === SortType.Up
+      ? setLoader({ Up: true, Down: false, newArr: false })
+      : setLoader({ Up: false, Down: true, newArr: false });
     if (method === "choice") {
-      console.log("choice up");
       await SelectionSortUp(array, setArray, sortType);
-      console.log(array);
+      setLoader({ Up: false, Down: false, newArr: false });
+      setDisabledBtn(false);
     } else {
       await bubbleSort(array, setArray, sortType);
-      console.log("bubble  up");
-      console.log(array);
       setDisabledBtn(false);
-      setLoaderUp(false);
-      setLoaderDown(false);
+      setLoader({ Up: false, Down: false, newArr: false });
     }
   };
 
@@ -82,14 +84,14 @@ export const SortingPage: React.FC = () => {
               extraClass={style.button}
               onClick={() => handleSubmit(SortType.Up)}
               disabled={disabledBtn}
-              isLoader={loaderUp}
+              isLoader={loader.Up}
             />
             <Button
               text="По убыванию"
               extraClass={style.button}
               onClick={() => handleSubmit(SortType.Down)}
               disabled={disabledBtn}
-              isLoader={loaderDown}
+              isLoader={loader.Down}
             />
           </div>
           <Button
@@ -97,6 +99,7 @@ export const SortingPage: React.FC = () => {
             extraClass={style.button}
             disabled={disabledBtn}
             onClick={() => newArray()}
+            isLoader={loader.newArr}
           />
         </form>
         <div className={style.animationBlock}>

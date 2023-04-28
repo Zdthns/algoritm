@@ -43,6 +43,7 @@ export const StringComponent: React.FC = () => {
     handlerChange: handlerChange,
     min: 1,
     max: 11,
+    styles: style.input,
   };
   const filsetBtn: TFilsetBtn = {
     handlerSubmit: handlerSubmit,
@@ -50,6 +51,7 @@ export const StringComponent: React.FC = () => {
     disabled: disabled,
     text: "Развернуть",
     linkedList: "small",
+    styles: style.button,
   };
   return (
     <SolutionLayout title="Строка">

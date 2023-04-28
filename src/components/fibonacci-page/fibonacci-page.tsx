@@ -45,6 +45,7 @@ export const FibonacciPage: React.FC = () => {
     handlerChange: handlerChange,
     min: 1,
     type: "numbers",
+    styles: style.input,
   };
   const filsetBtn: TFilsetBtn = {
     handlerSubmit: handlerSubmit,
@@ -52,6 +53,7 @@ export const FibonacciPage: React.FC = () => {
     disabled: disabled,
     text: "Рассчитать",
     linkedList: "small",
+    styles: style.button,
   };
   return (
     <SolutionLayout title="Последовательность Фибоначчи">

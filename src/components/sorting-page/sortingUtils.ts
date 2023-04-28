@@ -1,14 +1,6 @@
 import { SHORT_DELAY_IN_MS, delay } from "../../constants/delays";
 import { ElementStates, NumbersArrayType, SortType } from "../../types/element-states";
-//random arr
-export const randomArr = async (min = 0, max = 100) => {
-  let arr = []
-  let lenArr = Math.floor(Math.random() * (17 - 3) + 3);
-  for (let i = 0; i < lenArr; i++) {
-    arr.push(Math.floor(Math.random() * 100))
-  }
-  return arr
-}
+
 
 const swap = (
   array: NumbersArrayType[],
@@ -28,6 +20,7 @@ export const SelectionSortUp = async (
   for (let i = 0; i < array.length; i++) {
     let index = i;
     array[index].state = ElementStates.Changing;
+
     for (let j = i + 1; j < array.length; j++) {
       array[j].state = ElementStates.Changing;
       setArray([...array])
@@ -38,24 +31,31 @@ export const SelectionSortUp = async (
         index = j;
         array[j].state = ElementStates.Changing;
         array[index].state = i === index ? ElementStates.Changing : ElementStates.Default;
-        setArray([...array])
       }
-      let tmp = array[i];
-      array[i] = array[index];
-      array[index] = tmp;
-
       if (j !== index) {
         array[j].state = ElementStates.Default;
       }
-      setArray([...array]);
+      setArray([...array])
     }
+
     swap(array, i, index);
     array[index].state = ElementStates.Default;
     array[i].state = ElementStates.Modified;
-    setArray([...array]);
-  }
+    setArray([...array])
 
+    //let tmp = array[i];
+    //array[i] = array[index];
+    //array[index] = tmp;
+
+    //if (j !== index) {
+    //  array[j].state = ElementStates.Default;
+    //}
+    //setArray([...array]);
+  }
 }
+
+
+
 export const bubbleSort = async (
   array: NumbersArrayType[],
   setArray: Function,
@@ -64,6 +64,7 @@ export const bubbleSort = async (
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - i - 1; j++) {
       array[j].state = ElementStates.Changing;
+
       if (array[j + 1]) array[j + 1].state = ElementStates.Changing;
       setArray([...array]);
 

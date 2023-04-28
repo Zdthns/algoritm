@@ -4,12 +4,6 @@
   align-items: center;
 }
 
-.form {
-  display: flex;
-  width: 567px;
-  gap: 12px;
-}
-
 .animationBlock {
   display: flex;
   flex-wrap: wrap;
@@ -18,5 +12,10 @@
 }
 
 .button {
-  width: 178px;
+  width: 133px;
+  margin-left: 12px;
+}
+
+.input {
+  width: 377px;
 }

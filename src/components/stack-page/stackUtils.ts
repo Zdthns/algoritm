@@ -1,3 +1,0 @@
-
-//handlerPush(input,array, setArray)
-

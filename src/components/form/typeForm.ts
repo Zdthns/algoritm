@@ -8,15 +8,17 @@ export type TFilsetInput = {
   max?: number;
   min?: number;
   extraClass?: string
+  disabled?: number | boolean
+  styles?: string
 }
 
 export type TFilsetBtn = {
   handlerSubmit: React.FormEventHandler<HTMLButtonElement>;
   isLoader?: boolean;
-  disabled?: boolean;
+  disabled?: boolean
   text: string;
   linkedList?: "big" | "small" | undefined;
-  extraClass?: string
+  styles?: string
 }
 
 export type TForm = {

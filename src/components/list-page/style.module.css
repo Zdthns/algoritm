@@ -1,69 +1,41 @@
-.wrapper {
+.animationBlock {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 100%;
+  gap: 15px;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.circle {
+  display: flex;
   align-items: center;
+  gap: 17px;
+  position: relative;
 }
 
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 952px;
-  gap: 12px;
+.circle__add {
+  position: absolute;
+  bottom: 120px;
+  left: 14px;
 }
 
-.container {
-  display: flex;
-  gap: 12px;
+.circle__remove {
+  position: absolute;
+  top: 120px;
+  left: 10px;
 }
 
 .input {
   width: 204px;
 }
 
-.valueButton {
+.button1 {
   width: 175px;
-  justify-content: center;
+  margin-left: 12px;
 }
 
-.indexButton {
+.button2 {
   width: 362px;
-  justify-content: center;
-}
-
-.animationBlock {
-  display: flex;
-  align-items: center;
-  padding: 120px 0 0 0;
-  gap: 16px;
-}
-
-.twoCirclesWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  position: relative;
-}
-
-.topCircle {
-  position: absolute;
-  top: -70px;
-}
-
-.bottomCircle {
-  position: absolute;
-  bottom: -88px;
-}
-
-.buttonWrapper {
-  display: flex;
-  min-width: 736px;
-}
-
-.containerForm {
-  margin: 38px 0 0 0;
-  width: 100%;
-  /*width: calc(100% - 288px);*/
-  display: flex;
-  align-self: start;
+  margin-left: 12px;
 }

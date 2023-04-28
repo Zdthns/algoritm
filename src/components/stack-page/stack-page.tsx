@@ -86,24 +86,28 @@ export const StackPage: React.FC = () => {
     isLimitText: true,
     placeholder: "Введите значение",
     handlerChange: handlerChange,
+    styles: style.input,
   };
   const filsetBtn = {
     handlerSubmit: handlerSubmitPush,
     isLoader: loader.push,
     disabled: disabledBtn.push,
     text: "Добавить",
+    styles: style.button1,
   };
   const filsetBtn2 = {
     handlerSubmit: handlerSubmitPop,
     isLoader: loader.pop,
     disabled: disabledBtn.pop,
     text: "Удалить",
+    styles: style.button2,
   };
   const filsetBtn3 = {
     handlerSubmit: handlerSubmitClear,
     isLoader: loader.clear,
     disabled: disabledBtn.clear,
     text: "Очистить",
+    styles: style.button3,
   };
 
   return (

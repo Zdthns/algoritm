@@ -1,15 +1,3 @@
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form {
-  display: flex;
-  width: 567px;
-  gap: 12px;
-}
-
 .animationBlock {
   display: flex;
   padding: 120px 0 0;
@@ -17,6 +5,17 @@
   flex-wrap: wrap;
 }
 
+.input {
+  width: 377px;
+}
+
 .button {
   width: 178px;
+  margin-left: 12px;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

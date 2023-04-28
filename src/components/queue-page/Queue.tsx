@@ -9,6 +9,11 @@ type TQueue<T> = {
   getHead: () => number;
   getTail: () => number;
 };
+type IQueue<T> = {
+  enqueue: (item: T) => void;
+  dequeue: () => void;
+  peak: () => T | null;
+};
 
 export class Queue<T> implements IQueue<T> {
   private container: (T | null)[] = [];

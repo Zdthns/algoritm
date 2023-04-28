@@ -4,14 +4,26 @@
   align-items: center;
 }
 
-.form {
-  display: flex;
-  width: 829px;
-  gap: 12px;
-  margin: 0 0 52px
-}
-
 .animationBlock {
   display: flex;
   gap: 16px;
+}
+
+.input {
+  width: 377px;
+}
+
+.button1 {
+  width: 121px;
+  margin-left: 12px;
+}
+
+.button2 {
+  width: 108px;
+  margin-left: 12px;
+}
+
+.button3 {
+  margin-left: 80px;
+  width: 119px;
 }

@@ -137,6 +137,7 @@ export const QueuePage: React.FC = () => {
     placeholder: "Введите значение",
     handlerChange: handlerChange,
     extraClass: "",
+    styles: style.input,
   };
   const filsetBtn: TFilsetBtn = {
     handlerSubmit: handlerSubmitPush,
@@ -144,6 +145,7 @@ export const QueuePage: React.FC = () => {
     disabled: disabledBtn.push,
     text: "Добавить",
     linkedList: "small",
+    styles: style.button1,
   };
   const filsetBtn2: TFilsetBtn = {
     handlerSubmit: handlerSubmitPop,
@@ -151,6 +153,7 @@ export const QueuePage: React.FC = () => {
     disabled: disabledBtn.pop,
     text: "Удалить",
     linkedList: "small",
+    styles: style.button2,
   };
   const filsetBtn3: TFilsetBtn = {
     handlerSubmit: handlerSubmitClear,
@@ -158,6 +161,7 @@ export const QueuePage: React.FC = () => {
     disabled: disabledBtn.clear,
     text: "Очистить",
     linkedList: "small",
+    styles: style.button3,
   };
   return (
     <SolutionLayout title="Очередь">
