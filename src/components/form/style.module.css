@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+  /*column-gap: 12px;*/
+  margin: 0 auto 12px;
+  min-width: 952px;
+}
+
+
+
+.container {
+  display: flex;
+  column-gap: 12px;
+  margin: 0 auto 12px;
+  display: flex;
+  width: calc(100% - 288px);
+  margin: 0 auto 38px;
+  align-content: center;
+  max-width: 952px;
+}
