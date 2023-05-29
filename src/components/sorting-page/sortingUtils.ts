@@ -12,11 +12,12 @@ const swap = (
   array[secondIndex] = temp;
 };
 //сортировка выбором
-export const SelectionSortUp = async (
-  array: NumbersArrayType[],
+export const SelectionSort = async (
+  arr: NumbersArrayType[],
   setArray: Function,
   sortType: SortType
 ) => {
+  let array = arr
   for (let i = 0; i < array.length; i++) {
     let index = i;
     array[index].state = ElementStates.Changing;
@@ -42,25 +43,18 @@ export const SelectionSortUp = async (
     array[index].state = ElementStates.Default;
     array[i].state = ElementStates.Modified;
     setArray([...array])
-
-    //let tmp = array[i];
-    //array[i] = array[index];
-    //array[index] = tmp;
-
-    //if (j !== index) {
-    //  array[j].state = ElementStates.Default;
-    //}
-    //setArray([...array]);
   }
+  return array
 }
 
 
 
 export const bubbleSort = async (
-  array: NumbersArrayType[],
+  arr: NumbersArrayType[],
   setArray: Function,
   sortType: SortType
 ) => {
+  let array = arr
   for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array.length - i - 1; j++) {
       array[j].state = ElementStates.Changing;
@@ -83,48 +77,5 @@ export const bubbleSort = async (
     array[array.length - i - 1].state = ElementStates.Modified;
     setArray([...array]);
   }
+  return array
 };
-  //
-  //сортировка bubble
-//  export const bubbleSort = async (array: NumbersArrayType[],
-//    setArray: Function) => {
-//    for (let j = array.length - 1; j > 0; j--) {
-//      for (let i = 0; i < j; i++) {
-//        if (array[i] > array[i + 1]) {
-//          let temp = array[i];
-//          array[i] = array[i + 1];
-//          array[i + 1] = temp;
-//        }
-//      }
-//    }
-//    return array;
-//  }
-//  export const bubbleSort = async (array: NumbersArrayType[],
-//    setArray: Function) => {
-//    for (let j = array.length - 1; j > 0; j--) {
-//      for (let i = 0; i < j; i++) {
-//        if (array[i] < array[i + 1]) {
-//          let temp = array[i];
-//          array[i] = array[i + 1];
-//          array[i + 1] = temp;
-//        }
-//      }
-//    }
-//    return array;
-//  }
-//}
-//export const SelectionSort = async (array: NumbersArrayType[],
-//  setArray: Function) => {
-//  for (let i = 0; i < array.length; i++) {
-//    let index = i;
-//    for (let j = i + 1; j < array.length; j++) {
-//      if (array[j] > array[index]) {
-//        index = j;
-//      }
-//    }
-//    let tmp = array[i];
-//    array[i] = array[index];
-//    array[index] = tmp;
-//  }
-//  return array;
-//}

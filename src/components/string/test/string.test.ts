@@ -1,9 +1,13 @@
-import { handlerArray } from "./stringUtils";
-import { stringArr } from "./constansTest";
+import { ItemArray } from "../../../types/element-states";
+import { handlerArray } from "../stringUtils";
+import { stringArr } from "./constantsTest";
+
+
 
 const fnc = jest.fn();
 describe("Корректно разворачивает строку", () => {
   it("с чётным количеством символов", async () => {
+
     let inArray = stringArr.evenNum.inArray;
     let outArray = stringArr.evenNum.outArray;
     expect(await handlerArray(inArray, fnc)).toEqual(outArray);
@@ -22,7 +26,8 @@ describe("Корректно разворачивает строку", () => {
   });
 
   it("пустую строку", async () => {
-    let array: any[] = [];
-    expect(await handlerArray(array, fnc)).toEqual(array);
+    let inArray: ItemArray<string>[] = [];
+    let outArray: ItemArray<string>[] = [];
+    expect(await handlerArray(inArray, fnc)).toEqual(outArray);
   });
 });

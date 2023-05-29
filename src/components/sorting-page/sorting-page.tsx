@@ -9,13 +9,13 @@ import {
   NumbersArrayType,
   SortType,
 } from "../../types/element-states";
-import { SelectionSortUp, bubbleSort } from "./sortingUtils";
+import { SelectionSort, bubbleSort } from "./sortingUtils";
 import { randomArr } from "../../utils/randomArr";
 
-type TSortingArr = {
-  value: number;
-  state: ElementStates;
-};
+//type TSortingArr = {
+//  value: number;
+//  state: ElementStates;
+//};
 
 export const SortingPage: React.FC = () => {
   const [array, setArray] = useState<NumbersArrayType[]>([]);
@@ -49,7 +49,7 @@ export const SortingPage: React.FC = () => {
       ? setLoader({ Up: true, Down: false, newArr: false })
       : setLoader({ Up: false, Down: true, newArr: false });
     if (method === "choice") {
-      await SelectionSortUp(array, setArray, sortType);
+      await SelectionSort(array, setArray, sortType);
       setLoader({ Up: false, Down: false, newArr: false });
       setDisabledBtn(false);
     } else {

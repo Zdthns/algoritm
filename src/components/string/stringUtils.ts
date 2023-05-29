@@ -1,11 +1,10 @@
-//import { useCallback } from "react";
-//import { ElementStates, ItemArray } from "../../types/element-states";
-
 import { DELAY_IN_MS, delay } from "../../constants/delays";
 import { ElementStates, ItemArray } from "../../types/element-states";
 
-export const handlerArray = async (array: ItemArray<string>[], setArray: Function,
+export const handlerArray = async (arr: ItemArray<string>[], setArray: Function,
 ) => {
+  let array = arr
+
   let start: number = 0;
   let end: number = array.length - 1
 
@@ -25,6 +24,7 @@ export const handlerArray = async (array: ItemArray<string>[], setArray: Functio
     start++;
     end--;
   }
+  return array
 }
 
 const reverseString = (str: ItemArray<string>[], index: number, secondIndex: number): void => {
