@@ -5,7 +5,7 @@ import { sortingArr } from "./constansTest";
 const fnc = jest.fn();
 describe("Корректно сортирует bubbleSort", () => {
   it("Пустой массив", async () => {
-    let arr: NumbersArrayType[] = [];
+    let arr: any = [];
     expect(await bubbleSort(arr, () => { }, SortType.Up)).toEqual(arr);
   });
   it("массив из одного элемента", async () => {
@@ -16,6 +16,7 @@ describe("Корректно сортирует bubbleSort", () => {
     expect(await bubbleSort(sortingArr.inArray, fnc, SortType.Up)).toEqual(
       sortingArr.outArrayUp
     );
+
   });
 });
 
