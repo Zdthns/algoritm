@@ -1,10 +1,13 @@
 import { ItemArray } from "../../../types/element-states";
 import { handlerArray } from "../stringUtils";
-import { stringArr } from "./constansTest";
+import { stringArr } from "./constantsTest";
+
+
 
 const fnc = jest.fn();
 describe("Корректно разворачивает строку", () => {
   it("с чётным количеством символов", async () => {
+
     let inArray = stringArr.evenNum.inArray;
     let outArray = stringArr.evenNum.outArray;
     expect(await handlerArray(inArray, fnc)).toEqual(outArray);

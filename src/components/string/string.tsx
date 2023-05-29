@@ -15,7 +15,6 @@ export const StringComponent: React.FC = () => {
 
   const handlerChange = (evt: React.ChangeEvent<HTMLInputElement>) => {
     evt.currentTarget.value.length > 0 ? setDisabled(false) : setDisabled(true);
-    console.log(evt.target.value);
     setArray(
       evt.target.value.split("").map((item: string) => {
         return {
@@ -29,6 +28,7 @@ export const StringComponent: React.FC = () => {
   const handlerSubmit: React.FormEventHandler<HTMLButtonElement> = async (
     evt
   ) => {
+    console.log(array);
     evt.preventDefault();
     setDisabled(true);
     await handlerArray(array, setArray);
