@@ -66,4 +66,60 @@ describe("Строка", () => {
       .should("have.css", "border-color", modifiedColor)
       .contains("d");
   });
+  it("Строка разворачивается корректно с 1 символом", () => {
+    cy.get("input").type("a").should("have.value", "a");
+    cy.get("button").contains("Развернуть").click();
+
+    //cy.clock();
+
+    cy.get(circle)
+      .eq(0)
+      .should("have.css", "border-color", changingColor)
+      .contains("a");
+
+    cy.get(circle)
+      .eq(0)
+      .should("have.css", "border-color", modifiedColor)
+      .contains("a");
+  });
+  it("Строка разворачивается корректно с четным количеством символов", () => {
+    cy.get("input").type("asdf").should("have.value", "asdf");
+    cy.get("button").contains("Развернуть").click();
+
+    cy.get(circle)
+      .eq(0)
+      .should("have.css", "border-color", changingColor)
+      .contains("a");
+    cy.get(circle)
+      .eq(3)
+      .should("have.css", "border-color", changingColor)
+      .contains("f");
+
+    cy.get(circle)
+      .eq(0)
+      .should("have.css", "border-color", modifiedColor)
+      .contains("f");
+    cy.get(circle)
+      .eq(3)
+      .should("have.css", "border-color", modifiedColor)
+      .contains("a");
+
+    cy.get(circle)
+      .eq(1)
+      .should("have.css", "border-color", changingColor)
+      .contains("s");
+    cy.get(circle)
+      .eq(2)
+      .should("have.css", "border-color", changingColor)
+      .contains("d");
+
+    cy.get(circle)
+      .eq(1)
+      .should("have.css", "border-color", modifiedColor)
+      .contains("d");
+    cy.get(circle)
+      .eq(2)
+      .should("have.css", "border-color", modifiedColor)
+      .contains("s");
+  });
 });

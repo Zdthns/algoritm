@@ -5,7 +5,7 @@ import { stringArr } from "./constantsTest";
 
 
 const fnc = jest.fn();
-describe("Корректно разворачивает строку", () => {
+describe("разворачивает строку", () => {
   it("с чётным количеством символов", async () => {
 
     let inArray = stringArr.evenNum.inArray;
